@@ -1,37 +1,42 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGameLibrary;
+using Nothing_bad_happens_here_in_the_factory._Managers;
 
 namespace Nothing_bad_happens_here_in_the_factory;
 
-public class Game1 : Game
+public class Game1 : Core
 {
-    private GraphicsDeviceManager _graphics;
-    private SpriteBatch _spriteBatch;
+    private GameManager _gameManager;
 
-    public Game1()
+    public Game1() : base("Nothing bad happens here in the factory", 720, 600, false)
     {
-        _graphics = new GraphicsDeviceManager(this);
-        Content.RootDirectory = "Content";
-        IsMouseVisible = true;
+
     }
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
+        base.Initialize();   // aquí se ejecuta LoadContent y luego Core crea el SpriteBatch
 
-        base.Initialize();
+        GLobals.SpriteBatch = SpriteBatch;   // ahora sí existe
     }
 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
+        GLobals.Content = Content;
 
-        // TODO: use this.Content to load your game content here
+        _gameManager = new GameManager();
+        _gameManager.Init();
+
+        base.LoadContent();
     }
 
     protected override void Update(GameTime gameTime)
     {
+        GLobals.Update(gameTime);
+        _gameManager.Update(gameTime);
+
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
@@ -44,7 +49,9 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        // TODO: Add your drawing code here
+        SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+        _gameManager.Draw();
+        SpriteBatch.End();
 
         base.Draw(gameTime);
     }

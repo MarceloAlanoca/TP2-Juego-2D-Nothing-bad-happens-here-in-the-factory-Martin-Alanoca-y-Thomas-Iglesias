@@ -1,0 +1,13 @@
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.deps.json
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.pdb
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.AssemblyReference.cache
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfoInputs.cache
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfo.cs
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.CoreCompileInputs.cache
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.sourcelink.json
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll
