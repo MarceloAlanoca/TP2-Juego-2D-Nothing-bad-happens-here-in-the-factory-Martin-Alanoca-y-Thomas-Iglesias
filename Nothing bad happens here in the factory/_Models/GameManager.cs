@@ -10,6 +10,7 @@ namespace Nothing_bad_happens_here_in_the_factory._Managers;
 
 public class GameManager
 {
+    private Jardin _jardin;
     private readonly DetectionManager _detection = new();
 
     private Texture2D _pixel;
@@ -37,6 +38,7 @@ public class GameManager
         {
             Scale = 4.5f
         };
+        _jardin = new Jardin();
     }
 
     public void Update(GameTime gt)
@@ -97,6 +99,7 @@ public class GameManager
 
     public void Draw(GameTime gt)
     {
+        _jardin.Draw();
         if (_pixel == null)
         {
             _pixel = new Texture2D(
@@ -118,5 +121,6 @@ public class GameManager
 
         // Dibujar el cono de visión.
         _guard.Vision.Dibujar(_pixel, Color.Red);
+        
     }
 }

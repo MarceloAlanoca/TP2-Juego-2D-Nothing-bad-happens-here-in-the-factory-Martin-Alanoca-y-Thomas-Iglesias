@@ -13,7 +13,7 @@ public class Player
     private float _dirX = 1f;
     private readonly float _speed = 200f;
     private readonly AnimationManager _anims = new();
-    public CuadradoColision Hitbox = new CuadradoColision(new Vector2(25, 20), new Vector2(60, 110));
+    public CuadradoColision Hitbox = new CuadradoColision(new Vector2(25, 20), new Vector2(60, 20));
     public List<Rectangle> Muros = new();
     public Player(Vector2 position)
     {
