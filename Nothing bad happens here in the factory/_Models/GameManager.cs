@@ -23,7 +23,8 @@ public class GameManager
     public void Init()
     {
         _player = new Player(new Vector2(200, 440));
-
+        
+        //poniendo los waypoint por donde pasara el guardia
         var waypoints = new List<Vector2>
         {
             new Vector2(100, 400),
