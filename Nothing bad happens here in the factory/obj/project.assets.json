@@ -326,24 +326,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alano\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\alumno.ET26\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alano\\OneDrive\\Documentos\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\Nothing bad happens here in the factory\\Nothing bad happens here in the factory.csproj",
+      "projectUniqueName": "C:\\Users\\alumno.ET26\\Documents\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\Nothing bad happens here in the factory\\Nothing bad happens here in the factory.csproj",
       "projectName": "Nothing bad happens here in the factory",
-      "projectPath": "C:\\Users\\alano\\OneDrive\\Documentos\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\Nothing bad happens here in the factory\\Nothing bad happens here in the factory.csproj",
-      "packagesPath": "C:\\Users\\alano\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alano\\OneDrive\\Documentos\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\Nothing bad happens here in the factory\\obj\\",
+      "projectPath": "C:\\Users\\alumno.ET26\\Documents\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\Nothing bad happens here in the factory\\Nothing bad happens here in the factory.csproj",
+      "packagesPath": "C:\\Users\\alumno.ET26\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alumno.ET26\\Documents\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\Nothing bad happens here in the factory\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\alano\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\alumno.ET26\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -358,8 +353,8 @@
           "framework": "net9.0",
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\alano\\OneDrive\\Documentos\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\MonoGameLibrary\\MonoGameLibrary.csproj": {
-              "projectPath": "C:\\Users\\alano\\OneDrive\\Documentos\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\MonoGameLibrary\\MonoGameLibrary.csproj"
+            "C:\\Users\\alumno.ET26\\Documents\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\MonoGameLibrary\\MonoGameLibrary.csproj": {
+              "projectPath": "C:\\Users\\alumno.ET26\\Documents\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\MonoGameLibrary\\MonoGameLibrary.csproj"
             }
           }
         }
@@ -374,7 +369,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.400"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -401,30 +396,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.20, 9.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[9.0.20, 9.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[9.0.20, 9.0.20]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[9.0.20, 9.0.20]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

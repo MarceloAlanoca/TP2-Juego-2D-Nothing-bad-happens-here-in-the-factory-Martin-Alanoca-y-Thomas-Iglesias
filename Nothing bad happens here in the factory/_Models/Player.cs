@@ -1,16 +1,20 @@
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using MonoGameLibrary;
 
 namespace Nothing_bad_happens_here_in_the_factory.Models;
 
 public class Player
 {
+    private DetectionManager _detection = new();
     private Vector2 _position;
+    private float _dirX = 1f;
     private readonly float _speed = 200f;
     private readonly AnimationManager _anims = new();
-
+    public CuadradoColision Hitbox = new CuadradoColision(new Vector2(25, 20), new Vector2(60, 110));
+    public List<Rectangle> Muros = new();
     public Player(Vector2 position)
     {
         _position = position;
@@ -33,17 +37,34 @@ public class Player
 
     public void Update(GameTime gameTime)
     {
+        var anterior = _position;
+
         if (InputManager.Moving)
-        {
             _position += Vector2.Normalize(InputManager.Direction) * _speed * GLobals.TotalSeconds;
+
+        Hitbox.Actualizar(_position);
+
+        foreach (var muro in Muros)
+        {
+            if (Hitbox.Intersecta(muro))
+            {
+                _position = anterior;
+                Hitbox.Actualizar(_position);
+                break;
+            }
         }
+
+        if (InputManager.Direction.X > 0.01f) _dirX = 1f;
+        else if (InputManager.Direction.X < -0.01f) _dirX = -1f;
 
         _anims.Update(InputManager.Direction, gameTime);
     }
 
     public void Draw()
     {
-        _anims.Draw(_position);
+        var effects = _dirX < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+        _anims.Draw(_position, 1f, effects);
     }
 
     private static Texture2D BuildStrip(Texture2D sheet, params Rectangle[] frames)

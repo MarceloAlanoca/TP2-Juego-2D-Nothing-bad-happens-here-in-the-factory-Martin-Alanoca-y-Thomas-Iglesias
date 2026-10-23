@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
@@ -13,6 +14,7 @@ public class AnimationManager
         _anims.Add(key, animation);
         _lastKey = key;
     }
+
     public void Update(object key, GameTime gameTime)
     {
         if (_anims.ContainsKey(key))
@@ -27,8 +29,9 @@ public class AnimationManager
             _anims[_lastKey].Reset();
         }
     }
-    public void Draw(Vector2 position)
+
+    public void Draw(Vector2 position, float scale = 1f, SpriteEffects effects = SpriteEffects.None)
     {
-        _anims[_lastKey].Draw(position);
+        _anims[_lastKey].Draw(position, scale, effects);
     }
 }

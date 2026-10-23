@@ -47,12 +47,11 @@ public class Game1 : Core
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(Color.White);
 
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        _gameManager.Draw();
+        _gameManager.Draw(gameTime);
         SpriteBatch.End();
-
         base.Draw(gameTime);
     }
 }

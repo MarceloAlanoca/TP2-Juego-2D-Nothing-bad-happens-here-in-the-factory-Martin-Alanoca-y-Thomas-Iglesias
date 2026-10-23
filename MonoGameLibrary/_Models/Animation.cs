@@ -54,8 +54,8 @@ public class Animation
             _frame = (_frame + 1) % _frames;
         }
     }
-    public void Draw(Vector2 pos)
+    public void Draw(Vector2 pos, float scale = 1f, SpriteEffects effects = SpriteEffects.None)
     {
-        GLobals.SpriteBatch.Draw(_texture, pos, _sourceRectangles[_frame], Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 1);
+        GLobals.SpriteBatch.Draw(_texture, pos, _sourceRectangles[_frame], Color.White, 0, Vector2.Zero, scale, effects, 1);
     }
 }
