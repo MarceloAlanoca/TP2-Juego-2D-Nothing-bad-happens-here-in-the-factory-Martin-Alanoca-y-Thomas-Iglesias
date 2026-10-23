@@ -25,18 +25,10 @@ public class Player
             new Rectangle(450, 4,  96, 144),   // 3
             new Rectangle(334, 4,  78, 144));   // 2
 
-        var anim = new Animation(strip, 5, 1, 0.1f);
+        var anim = new Animation(strip, 5, 1, 0.2f);
 
-        
-        
-        if(InputManager._Direction.X > 0)
-        {
-            _anims.AddAnimation(new Vector2(1, 0), anim);
-        }
-        else
-        {
-            _anims.AddAnimation(new Vector2(-1, 0),  anim);
-        }
+        _anims.AddAnimation(new Vector2(-1, 0),  anim);
+        _anims.AddAnimation(new Vector2(1, 0),  anim);
     }
 
     public void Update(GameTime gameTime)
