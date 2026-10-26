@@ -23,12 +23,13 @@ public class GameManager
     private bool _jugadorDetectadoAnteriormente = false;
     private bool _colisionAnterior = false;
 
+    private enum Estado { Menu, Juego }
+    private Estado _estado = Estado.Menu;
+
     public void Init()
     {
-        
         _player = new Player(new Vector2(200, 440));
-        
-        //poniendo los waypoint por donde pasara el guardia
+
         var waypoints = new List<Vector2>
         {
             new Vector2(100, 400),
@@ -43,13 +44,21 @@ public class GameManager
         {
             Scale = 4.5f
         };
-        //_jardin = new Jardin();
+
         _inicio = new InitGame();
+        _inicio.Init();   // crea el botón
+
+        _inicio.OnIniciar = () =>
+        {
+            
+            _estado = Estado.Juego;
+        };
     }
 
     public void Update(GameTime gt)
     {
         InputManager.Update();
+         Gum.GumService.Default.Update(gt);
 
         // Actualizar al jugador.
         _player.Update(gt);
@@ -120,14 +129,14 @@ public class GameManager
         }
 
         // Dibujar personajes.
-        _player.Draw();
-        _guard.Draw(gt);
+        //_player.Draw();
+        //_guard.Draw(gt);
 
         // Dibujar hitboxes.
-        _player.Hitbox.Dibujar(_pixel, Color.Lime);
-        _guard.Hitbox.Dibujar(_pixel, Color.Blue);
+        //_player.Hitbox.Dibujar(_pixel, Color.Lime);
+        //_guard.Hitbox.Dibujar(_pixel, Color.Blue);
 
         // Dibujar el cono de visión.
-        _guard.Vision.Dibujar(_pixel, Color.Red);
+        //_guard.Vision.Dibujar(_pixel, Color.Red);
     }
 }

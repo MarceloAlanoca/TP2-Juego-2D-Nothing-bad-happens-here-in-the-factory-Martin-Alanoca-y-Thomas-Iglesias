@@ -17,16 +17,15 @@ public class Game1 : Core
 
     protected override void Initialize()
     {
-        base.Initialize();   // aquí se ejecuta LoadContent y luego Core crea el SpriteBatch
-
-        GLobals.SpriteBatch = SpriteBatch;   // ahora sí existe
+        base.Initialize();                   // ejecuta LoadContent y crea el SpriteBatch
+        GLobals.SpriteBatch = SpriteBatch;
     }
 
     protected override void LoadContent()
     {
         GLobals.Content = Content;
 
-        GumService.Default.Initialize(this);   // una sola vez, antes del GameManager
+        Gum.GumService.Default.Initialize(this);   // una sola vez, antes del GameManager
 
         _gameManager = new GameManager();
         _gameManager.Init();
@@ -53,7 +52,7 @@ public class Game1 : Core
         _gameManager.Draw(gameTime);
         SpriteBatch.End();
 
-        GumService.Default.Draw();   // fuera del Begin/End
+        Gum.GumService.Default.Draw();   // fuera del Begin/End
 
         base.Draw(gameTime);
     }
