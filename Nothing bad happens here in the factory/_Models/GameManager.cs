@@ -5,11 +5,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary;
 using Nothing_bad_happens_here_in_the_factory.Models;
+using MonoGameGum;
+using Gum.Forms.Controls;
 
 namespace Nothing_bad_happens_here_in_the_factory._Managers;
 
 public class GameManager
 {
+    private InitGame _inicio;
     private Jardin _jardin;
     private readonly DetectionManager _detection = new();
 
@@ -22,6 +25,7 @@ public class GameManager
 
     public void Init()
     {
+        
         _player = new Player(new Vector2(200, 440));
         
         //poniendo los waypoint por donde pasara el guardia
@@ -39,7 +43,8 @@ public class GameManager
         {
             Scale = 4.5f
         };
-        _jardin = new Jardin();
+        //_jardin = new Jardin();
+        _inicio = new InitGame();
     }
 
     public void Update(GameTime gt)
@@ -96,11 +101,13 @@ public class GameManager
         }
 
         _jugadorDetectadoAnteriormente = detectado;
+
     }
 
     public void Draw(GameTime gt)
     {
-        _jardin.Draw();
+        _inicio.Draw();
+        //_jardin.Draw();
         if (_pixel == null)
         {
             _pixel = new Texture2D(
@@ -122,6 +129,5 @@ public class GameManager
 
         // Dibujar el cono de visión.
         _guard.Vision.Dibujar(_pixel, Color.Red);
-        
     }
 }

@@ -1,4 +1,3 @@
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary;
@@ -11,8 +10,7 @@ public class Jardin
 
     public Jardin()
     {
-        _texturefont =
-            GLobals.Content.Load<Texture2D>("Fondos/Salida_1");
+        _texturefont = GLobals.Content.Load<Texture2D>("Fondos/Salida_1");
     }
 
     public void Draw()
@@ -24,8 +22,6 @@ public class Jardin
                 0,
                 GLobals.SpriteBatch.GraphicsDevice.Viewport.Width,
                 GLobals.SpriteBatch.GraphicsDevice.Viewport.Height
-            ),
-            Color.White
-        );
+            ),Color.White);
     }
 }

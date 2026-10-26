@@ -79,3 +79,13 @@ C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-fact
 C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\obj\Debug\net9.0\ref\Nothing bad happens here in the factory.dll
 C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\Content\Assets\Guard.xnb
 C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\Content\Fondos\Salida_1.xnb
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\Content\Assets\Guard.xnb
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\Content\Fondos\Salida_1.xnb
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\BrotliSharpLib.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\CsvHelper.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\GumCommon.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\FlatRedBall.InterpolationCore.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\MonoGameGum.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\SharpCompress.dll
+C:\Users\alano\OneDrive\Documentos\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net9.0\TextCopy.dll

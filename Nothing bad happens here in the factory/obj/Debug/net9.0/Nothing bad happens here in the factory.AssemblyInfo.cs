@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Nothing bad happens here in the factory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8100ffb3dddfeb492ce35354d7883de91bf83dc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nothing bad happens here in the factory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nothing bad happens here in the factory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGameLibrary;
+using MonoGameGum;
 using Nothing_bad_happens_here_in_the_factory._Managers;
 
 namespace Nothing_bad_happens_here_in_the_factory;
@@ -12,7 +13,6 @@ public class Game1 : Core
 
     public Game1() : base("Nothing bad happens here in the factory", 720, 600, false)
     {
-
     }
 
     protected override void Initialize()
@@ -25,6 +25,8 @@ public class Game1 : Core
     protected override void LoadContent()
     {
         GLobals.Content = Content;
+
+        GumService.Default.Initialize(this);   // una sola vez, antes del GameManager
 
         _gameManager = new GameManager();
         _gameManager.Init();
@@ -40,8 +42,6 @@ public class Game1 : Core
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
-        // TODO: Add your update logic here
-
         base.Update(gameTime);
     }
 
@@ -52,6 +52,11 @@ public class Game1 : Core
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
         _gameManager.Draw(gameTime);
         SpriteBatch.End();
+
+        GumService.Default.Draw();   // fuera del Begin/End
+
         base.Draw(gameTime);
     }
 }
+
+

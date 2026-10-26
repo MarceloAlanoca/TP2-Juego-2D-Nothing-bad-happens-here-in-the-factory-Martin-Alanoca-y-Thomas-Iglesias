@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/alumno.ET26/Documents/TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias/Nothing bad happens here in the factory/Content/Assets/Guard.png</File>
-    <File>C:/Users/alumno.ET26/Documents/TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias/Nothing bad happens here in the factory/Content/Assets/Jugador.png</File>
-    <File>C:/Users/alumno.ET26/Documents/TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias/Nothing bad happens here in the factory/Content/Fondos/Salida_1.png</File>
+    <File>C:/Users/alano/OneDrive/Documentos/TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias/Nothing bad happens here in the factory/Content/Assets/Guard.png</File>
+    <File>C:/Users/alano/OneDrive/Documentos/TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias/Nothing bad happens here in the factory/Content/Assets/Jugador.png</File>
+    <File>C:/Users/alano/OneDrive/Documentos/TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias/Nothing bad happens here in the factory/Content/Fondos/Salida_1.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
