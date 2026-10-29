@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gCBlXOJjytg=",
+  "dgSpecHash": "Aks9crVdwt8=",
   "success": true,
   "projectFilePath": "C:\\Users\\alumno.ET26\\Documents\\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\\Nothing bad happens here in the factory\\Nothing bad happens here in the factory.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,10 @@
     "C:\\Users\\alumno.ET26\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\alumno.ET26\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\alumno.ET26\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\alumno.ET26\\.nuget\\packages\\textcopy\\6.2.1\\textcopy.6.2.1.nupkg.sha512"
+    "C:\\Users\\alumno.ET26\\.nuget\\packages\\textcopy\\6.2.1\\textcopy.6.2.1.nupkg.sha512",
+    "C:\\Users\\alumno.ET26\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.28\\microsoft.netcore.app.ref.8.0.28.nupkg.sha512",
+    "C:\\Users\\alumno.ET26\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.28\\microsoft.windowsdesktop.app.ref.8.0.28.nupkg.sha512",
+    "C:\\Users\\alumno.ET26\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.28\\microsoft.aspnetcore.app.ref.8.0.28.nupkg.sha512"
   ],
   "logs": []
 }

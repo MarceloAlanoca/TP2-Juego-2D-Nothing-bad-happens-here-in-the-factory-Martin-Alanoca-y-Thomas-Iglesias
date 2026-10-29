@@ -47,3 +47,6 @@ C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-fact
 C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\obj\Debug\net8.0\Nothing bad happens here in the factory.pdb
 C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\obj\Debug\net8.0\Nothing bad happens here in the factory.genruntimeconfig.cache
 C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\obj\Debug\net8.0\ref\Nothing bad happens here in the factory.dll
+C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net8.0\Content\Fondos\FondoInicio.xnb
+C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net8.0\Content\Fondos\Recepcion.xnb
+C:\Users\alumno.ET26\Documents\TP2-Juego-2D-Nothing-bad-happens-here-in-the-factory-Martin-Alanoca-y-Thomas-Iglesias\Nothing bad happens here in the factory\bin\Debug\net8.0\Content\Fondos\Recepcion_2.xnb

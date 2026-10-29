@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
@@ -13,7 +12,7 @@ namespace Nothing_bad_happens_here_in_the_factory._Managers;
 public class GameManager
 {
     private InitGame _inicio;
-    private Jardin _jardin;
+    private TileMap _mapa;
     private readonly DetectionManager _detection = new();
 
     private Texture2D _pixel;
@@ -28,6 +27,19 @@ public class GameManager
 
     public void Init()
     {
+        // Al abrir el juego solo se crea el menú. Todo lo demás espera al botón.
+        _inicio = new InitGame();
+        _inicio.Init();   // crea el botón
+
+        _inicio.OnIniciar = IniciarJuego;
+    }
+
+    private void IniciarJuego()
+    {
+        _inicio.Ocultar();
+
+        _mapa = new TileMap();
+        _mapa.Cargar();
         _player = new Player(new Vector2(200, 440));
 
         var waypoints = new List<Vector2>
@@ -45,14 +57,10 @@ public class GameManager
             Scale = 4.5f
         };
 
-        _inicio = new InitGame();
-        _inicio.Init();   // crea el botón
+        _jugadorDetectadoAnteriormente = false;
+        _colisionAnterior = false;
 
-        _inicio.OnIniciar = () =>
-        {
-            
-            _estado = Estado.Juego;
-        };
+        _estado = Estado.Juego;
     }
 
     public void Update(GameTime gt)
@@ -60,8 +68,14 @@ public class GameManager
         InputManager.Update();
          Gum.GumService.Default.Update(gt);
 
+        // En el menú solo se actualiza Gum (el botón); la lógica del juego espera.
+        if (_estado != Estado.Juego) return;
+
         // Actualizar al jugador.
         _player.Update(gt);
+
+        // La cámara sigue al jugador a lo largo del mapa horizontal.
+        _mapa.SeguirA(_player.Hitbox.Centro.X);
 
         // Comprobar si el jugador está dentro del cono.
         bool detectado = _detection.DentroDelCono(
@@ -115,8 +129,12 @@ public class GameManager
 
     public void Draw(GameTime gt)
     {
-        _inicio.Draw();
-        //_jardin.Draw();
+        if (_estado == Estado.Menu)
+        {
+            _inicio.Draw();
+            return;
+        }
+
         if (_pixel == null)
         {
             _pixel = new Texture2D(
@@ -128,9 +146,20 @@ public class GameManager
             _pixel.SetData(new[] { Color.White });
         }
 
-        // Dibujar personajes.
-        //_player.Draw();
-        //_guard.Draw(gt);
+        // El mapa ya se dibuja restando la cámara.
+        _mapa.Draw();
+
+        // Personajes: se reinicia el SpriteBatch con la cámara aplicada,
+        // así Player y Guard siguen usando sus coordenadas del mundo.
+        var sb = GLobals.SpriteBatch;
+        sb.End();
+        sb.Begin(
+            samplerState: SamplerState.PointClamp,
+            transformMatrix: Matrix.CreateTranslation(-_mapa.Camara, 0, 0)
+        );
+
+        _player.Draw();
+        _guard.Draw(gt);
 
         // Dibujar hitboxes.
         //_player.Hitbox.Dibujar(_pixel, Color.Lime);
@@ -138,5 +167,9 @@ public class GameManager
 
         // Dibujar el cono de visión.
         //_guard.Vision.Dibujar(_pixel, Color.Red);
+
+        // Se vuelve al Begin normal para que el End de Game1 siga funcionando.
+        sb.End();
+        sb.Begin(samplerState: SamplerState.PointClamp);
     }
 }
