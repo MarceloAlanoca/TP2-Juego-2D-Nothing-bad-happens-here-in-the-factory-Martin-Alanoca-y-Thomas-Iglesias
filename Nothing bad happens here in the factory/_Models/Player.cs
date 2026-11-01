@@ -8,14 +8,15 @@ namespace Nothing_bad_happens_here_in_the_factory.Models;
 
 public class Player
 {
+    private TileMap mapa;
     private DetectionManager _detection = new();
     private Vector2 _position;
     private float _dirX = 1f;
     private readonly float _speed = 200f;
     private readonly AnimationManager _anims = new();
     public CuadradoColision Hitbox = new CuadradoColision(new Vector2(25, 20), new Vector2(60, 20));
-    public List<Rectangle> Muros = new();
-    public Player(Vector2 position)
+
+    public Player(Vector2 position, TileMap Mapa)
     {
         _position = position;
 
@@ -27,12 +28,14 @@ public class Player
             new Rectangle(190, 4, 110, 144),   // 1
             new Rectangle(334, 4,  78, 144),   // 2
             new Rectangle(450, 4,  96, 144),   // 3
-            new Rectangle(334, 4,  78, 144));   // 2
+            new Rectangle(334, 4,  78, 144));  // 2
 
         var anim = new Animation(strip, 5, 1, 0.2f);
 
-        _anims.AddAnimation(new Vector2(-1, 0),  anim);
+        _anims.AddAnimation(new Vector2(-1, 0), anim);
         _anims.AddAnimation(new Vector2(1, 0),  anim);
+
+        mapa = Mapa;
     }
 
     public void Update(GameTime gameTime)
@@ -42,9 +45,9 @@ public class Player
         if (InputManager.Moving)
             _position += Vector2.Normalize(InputManager.Direction) * _speed * GLobals.TotalSeconds;
 
+        // colisiones con los muros del escenario
         Hitbox.Actualizar(_position);
-
-        foreach (var muro in Muros)
+        foreach (var muro in mapa.Muros)
         {
             if (Hitbox.Intersecta(muro))
             {
@@ -58,6 +61,14 @@ public class Player
         else if (InputManager.Direction.X < -0.01f) _dirX = -1f;
 
         _anims.Update(InputManager.Direction, gameTime);
+    }
+
+    // Mueve al jugador a otro escenario.
+    public void IrA(TileMap nuevoMapa, Vector2 posicion)
+    {
+        mapa = nuevoMapa;
+        _position = posicion;
+        Hitbox.Actualizar(_position);
     }
 
     public void Draw()

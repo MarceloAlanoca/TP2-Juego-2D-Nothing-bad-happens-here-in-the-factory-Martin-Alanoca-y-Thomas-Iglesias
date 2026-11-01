@@ -1,25 +1,17 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using MonoGameLibrary;
 
-public class PlantaPB
+namespace Nothing_bad_happens_here_in_the_factory;
+
+public class PlantaPB : Scene
 {
-     private Texture2D _texturefont;
-
-    public PlantaPB()
+    public override void Cargar()
     {
-        _texturefont = GLobals.Content.Load<Texture2D>("Fondos/Recepcion");
-    }
+        Mapa.Cargar(
+            new int[,] { { 1, 2 } },
+            "Fondos", "Recepcion", "Recepcion_2");
 
-    public void Draw()
-    {
-        GLobals.SpriteBatch.Draw(
-            _texturefont,
-            new Rectangle(
-                0,
-                0,
-                GLobals.SpriteBatch.GraphicsDevice.Viewport.Width,
-                GLobals.SpriteBatch.GraphicsDevice.Viewport.Height
-            ),Color.White);
+        Mapa.AgregarMurosLaterales();
+        Mapa.AgregarPuerta("maquina",   new Rectangle(Mapa.AnchoTotal - 580, 240, 118, 257));
+        Mapa.AgregarPuerta("vestuario", new Rectangle(Mapa.AnchoTotal - 330, 240, 118, 257));
     }
 }

@@ -8,19 +8,9 @@ namespace Nothing_bad_happens_here_in_the_factory;
 
 public class TileMap
 {
-    // Tiles cargados del Content. El número del mapa apunta a esta lista:
-    // 0 = vacío, 1 = _tiles[0], 2 = _tiles[1], etc.
     private readonly List<Texture2D> _tiles = new();
-
-    // Recorrido horizontal: una fila de tiles de izquierda a derecha.
-    // 1 = Fondos/Salida_1 | 2 = Cuarto/Cuarto_1 | 3 = Cuarto/Cuarto_2
-    private readonly int[,] _mapa =
-    {
-        { 1,2,3 }
-    };
-
-    private const int TileSize = 128;   // tamaño original de cada imagen en píxeles
-    private int _destino;               // tamaño del tile ya escalado en pantalla
+    private int[,] _mapa;
+    private int _destino;   // tamaño del tile ya escalado en pantalla
 
     // Posición X de la cámara dentro del mapa (en píxeles de pantalla).
     public float Camara { get; private set; }
@@ -30,23 +20,34 @@ public class TileMap
     public int AnchoTotal => Columnas * _destino;
     public int AltoTotal => Filas * _destino;
 
-    public void Cargar()
-    {
-        // Imágenes de Content/Fondos
-        CargarCarpeta("Fondos", "Salida_1","Recepcion", "Recepcion_2");
+    // Colisiones que define cada escenario
+    public List<Rectangle> Muros { get; } = new();
+    public Dictionary<string, Rectangle> Puertas { get; } = new();
 
-        // Imágenes de Content/Cuarto
+    // El escenario pasa el mapa y las imágenes (1 = primera imagen, 2 = segunda...)
+    public void Cargar(int[,] mapa, string carpeta, params string[] nombres)
+    {
+        _mapa = mapa;
+        _tiles.Clear();
+        Muros.Clear();
+        Puertas.Clear();
+
+        foreach (var nombre in nombres)
+            _tiles.Add(GLobals.Content.Load<Texture2D>($"{carpeta}/{nombre}"));
 
         // El mapa se escala para que ocupe todo el alto de la ventana.
         int altoVentana = GLobals.SpriteBatch.GraphicsDevice.Viewport.Height;
         _destino = (int)MathF.Ceiling(altoVentana / (float)Filas);
     }
 
-    private void CargarCarpeta(string carpeta, params string[] nombres)
+    public void AgregarMurosLaterales(int grosor = 35)
     {
-        foreach (var nombre in nombres)
-            _tiles.Add(GLobals.Content.Load<Texture2D>($"{carpeta}/{nombre}"));
+        Muros.Add(new Rectangle(0, 0, grosor, AltoTotal));
+        Muros.Add(new Rectangle(AnchoTotal - grosor, 0, grosor, AltoTotal));
     }
+
+    public void AgregarMuro(Rectangle r) => Muros.Add(r);
+    public void AgregarPuerta(string nombre, Rectangle r) => Puertas[nombre] = r;
 
     // Centra la cámara en una posición X del mapa sin salirse de los bordes.
     public void SeguirA(float x)
@@ -54,6 +55,15 @@ public class TileMap
         int anchoVentana = GLobals.SpriteBatch.GraphicsDevice.Viewport.Width;
         float max = Math.Max(0, AnchoTotal - anchoVentana);
         Camara = MathHelper.Clamp(x - anchoVentana / 2f, 0, max);
+    }
+
+    public void DibujarColisiones(Texture2D pixel)
+    {
+        var sb = GLobals.SpriteBatch;
+        foreach (var m in Muros)
+            sb.Draw(pixel, m, Color.Red * 0.4f);
+        foreach (var p in Puertas.Values)
+            sb.Draw(pixel, p, Color.Lime * 0.4f);
     }
 
     public void Draw()
