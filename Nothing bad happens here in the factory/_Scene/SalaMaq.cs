@@ -4,7 +4,7 @@ namespace Nothing_bad_happens_here_in_the_factory;
 
 public class SalaMaq : Scene
 {
-    public override void Cargar()
+        public override void Cargar()
     {
         Mapa.Cargar(
             new int[,] { { 1,2 } },
