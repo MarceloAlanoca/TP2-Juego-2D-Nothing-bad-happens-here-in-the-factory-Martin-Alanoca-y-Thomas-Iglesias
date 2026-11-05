@@ -14,11 +14,20 @@ public class TileMap
 
     // Posición X de la cámara dentro del mapa (en píxeles de pantalla).
     public float Camara { get; private set; }
-
+    private Texture2D _pixel;   
     public int Filas => _mapa.GetLength(0);
     public int Columnas => _mapa.GetLength(1);
     public int AnchoTotal => Columnas * _destino;
     public int AltoTotal => Filas * _destino;
+    // Si el mapa es más angosto que la ventana, lo centra.
+    public int OffsetX
+    {
+        get
+        {
+            int anchoVentana = GLobals.SpriteBatch.GraphicsDevice.Viewport.Width;
+            return Math.Max(0, (anchoVentana - AnchoTotal) / 2);
+        }
+    }
 
     // Colisiones que define cada escenario
     public List<Rectangle> Muros { get; } = new();
@@ -31,7 +40,10 @@ public class TileMap
         _tiles.Clear();
         Muros.Clear();
         Puertas.Clear();
+        Zonas.Clear();
 
+        _pixel = new Texture2D(GLobals.SpriteBatch.GraphicsDevice, 1, 1);
+        _pixel.SetData(new[] { Color.White });
         foreach (var nombre in nombres)
             _tiles.Add(GLobals.Content.Load<Texture2D>($"{carpeta}/{nombre}"));
 
@@ -48,47 +60,65 @@ public class TileMap
 
     public void AgregarMuro(Rectangle r) => Muros.Add(r);
     public void AgregarPuerta(string nombre, Rectangle r) => Puertas[nombre] = r;
+    public Dictionary<string, Rectangle> Zonas { get; } = new(); //para que se pueda poner nombre a cada zona interactuable
+    public void AgregarZona(string nombre, Rectangle r) => Zonas[nombre] = r;
 
     // Centra la cámara en una posición X del mapa sin salirse de los bordes.
     public void SeguirA(float x)
     {
         int anchoVentana = GLobals.SpriteBatch.GraphicsDevice.Viewport.Width;
         float max = Math.Max(0, AnchoTotal - anchoVentana);
-        Camara = MathHelper.Clamp(x - anchoVentana / 2f, 0, max);
+        Camara = MathF.Round(MathHelper.Clamp(x - anchoVentana / 2f, 0, max));
     }
 
-    public void DibujarColisiones(Texture2D pixel)
+    public void DibujarColisiones()
+{
+    var sb = GLobals.SpriteBatch;
+    int cam = (int)Camara;
+
+    foreach (var m in Muros)
     {
-        var sb = GLobals.SpriteBatch;
-        foreach (var m in Muros)
-            sb.Draw(pixel, m, Color.Red * 0.4f);
-        foreach (var p in Puertas.Values)
-            sb.Draw(pixel, p, Color.Lime * 0.4f);
+        var r = m;
+        r.X = r.X - cam + OffsetX;
+        sb.Draw(_pixel, r, Color.Red * 0.4f);
     }
-
-    public void Draw()
+    foreach (var p in Puertas.Values)
     {
-        int anchoVentana = GLobals.SpriteBatch.GraphicsDevice.Viewport.Width;
+        var r = p;
+        r.X = r.X - cam + OffsetX;
+        sb.Draw(_pixel, r, Color.Lime * 0.4f);
+    }
+        foreach (var z in Zonas.Values)
+    {
+        var r = z; r.X = r.X - (int)Camara + OffsetX;
+        sb.Draw(_pixel, r, Color.Yellow * 0.4f);
+    }
+}
 
-        // Solo se dibujan las columnas visibles.
-        int desde = Math.Max(0, (int)(Camara / _destino));
-        int hasta = Math.Min(Columnas - 1, (int)((Camara + anchoVentana) / _destino));
+public void Draw()
+{
+    int anchoVentana = GLobals.SpriteBatch.GraphicsDevice.Viewport.Width;
+    int cam = (int)Camara;
+    int offset = OffsetX;
 
-        for (int fila = 0; fila < Filas; fila++)
+    int desde = Math.Max(0, cam / _destino);
+    int hasta = Math.Min(Columnas - 1, (cam + anchoVentana) / _destino);
+
+    for (int fila = 0; fila < Filas; fila++)
+    {
+        for (int col = desde; col <= hasta; col++)
         {
-            for (int col = desde; col <= hasta; col++)
-            {
-                int id = _mapa[fila, col];
-                if (id == 0) continue;
+            int id = _mapa[fila, col];
+            if (id == 0) continue;
 
-                var destino = new Rectangle(
-                    (int)(col * _destino - Camara),
-                    fila * _destino,
-                    _destino,
-                    _destino);
+            var destino = new Rectangle(
+                col * _destino - cam + offset,
+                fila * _destino,
+                _destino + 1,   // 1 px de solape: tapa la línea blanca entre tiles
+                _destino + 1);
 
-                GLobals.SpriteBatch.Draw(_tiles[id - 1], destino, Color.White);
-            }
+            GLobals.SpriteBatch.Draw(_tiles[id - 1], destino, Color.White);
         }
     }
+}
 }
