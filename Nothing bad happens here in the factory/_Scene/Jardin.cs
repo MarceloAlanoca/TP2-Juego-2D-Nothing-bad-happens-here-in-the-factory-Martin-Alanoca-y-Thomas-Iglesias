@@ -1,27 +1,18 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using MonoGameLibrary;
 
 namespace Nothing_bad_happens_here_in_the_factory;
 
-public class Jardin
+public class Jardin : Scene
 {
-    private Texture2D _texturefont;
-
-    public Jardin()
+    public override void Cargar()
     {
-        _texturefont = GLobals.Content.Load<Texture2D>("Fondos/Salida_1");
-    }
+        // Cambiá los nombres por los de tus assets de fondo.
+        Mapa.Cargar(
+            new int[,] { { 1 } },
+           "Fondos", "Salida_1");
 
-    public void Draw()
-    {
-        GLobals.SpriteBatch.Draw(
-            _texturefont,
-            new Rectangle(
-                0,
-                0,
-                GLobals.SpriteBatch.GraphicsDevice.Viewport.Width,
-                GLobals.SpriteBatch.GraphicsDevice.Viewport.Height
-            ),Color.White);
+        Mapa.AgregarMurosLaterales();
+        Mapa.AgregarPuerta("fin", new Rectangle(100, 240, 118, 257));
+        Mapa.AgregarPuerta("salida", new Rectangle(500, 240, 118, 257));
     }
 }

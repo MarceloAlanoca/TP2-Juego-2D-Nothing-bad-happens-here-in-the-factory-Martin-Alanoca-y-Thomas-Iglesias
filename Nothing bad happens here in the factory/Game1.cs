@@ -46,7 +46,7 @@ public class Game1 : Core
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.White);
+        GraphicsDevice.Clear(Color.Black);
 
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
         _gameManager.Draw(gameTime);

@@ -59,6 +59,7 @@ public class TileMap
     }
 
     public void AgregarMuro(Rectangle r) => Muros.Add(r);
+    public void eliminarMuro(Rectangle r) => Muros.Remove(r);
     public void AgregarPuerta(string nombre, Rectangle r) => Puertas[nombre] = r;
     public Dictionary<string, Rectangle> Zonas { get; } = new(); //para que se pueda poner nombre a cada zona interactuable
     public void AgregarZona(string nombre, Rectangle r) => Zonas[nombre] = r;

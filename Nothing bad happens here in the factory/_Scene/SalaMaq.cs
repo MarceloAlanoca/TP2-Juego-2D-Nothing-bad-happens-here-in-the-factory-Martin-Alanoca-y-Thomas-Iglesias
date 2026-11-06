@@ -8,6 +8,8 @@ namespace Nothing_bad_happens_here_in_the_factory;
 public class SalaMaq : Scene
 {
     private Texture2D _cajaFusibles;
+    private Rectangle muro = new Rectangle(700, 320, 100, 170);
+     public Rectangle LlaveRect =  new Rectangle(1000, 320, 100, 170);
     public override void Cargar()
     {
         _cajaFusibles = GLobals.Content.Load<Texture2D>("Assets/CajaFusibles");
@@ -15,10 +17,13 @@ public class SalaMaq : Scene
         Mapa.Cargar(
             new int[,] { { 1, 2 } },
             "Fondos/SalaMaq", "SalaMaquinas_1", "SalaMaquinas_2");
+        
 
         Mapa.AgregarMurosLaterales();
         Mapa.AgregarPuerta("salida", new Rectangle(100, 240, 118, 257));
         Mapa.AgregarZona("cables", new Rectangle(600, 320, 100, 170));
+        Mapa.AgregarZona("llave", LlaveRect);
+        Mapa.AgregarMuro(muro);
     }
     public void DibujarCajaFusibles(SpriteBatch sb, Viewport viewport)
 {
@@ -34,4 +39,8 @@ public class SalaMaq : Scene
         Color.White
     );
 }
+public void eliminarMuro()
+    {
+            Mapa.eliminarMuro(muro);
+    }
 }

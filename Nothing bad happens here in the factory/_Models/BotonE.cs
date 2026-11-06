@@ -59,4 +59,24 @@ public class BotonE
         int frame = Presionado ? 1 : 0;
         _sprite.SourceRectangle = new Rectangle(frame * FrameAncho, 0, FrameAncho, FrameAlto);
     }
+    public void Update(bool cerca, Rectangle puerta)
+    {
+        Cerca = cerca;
+        _sprite.Visible = cerca;
+
+        bool e = Keyboard.GetState().IsKeyDown(Keys.E);
+        Presionado = cerca && e;
+        Interactuar = Presionado && !_eAnterior;
+        _eAnterior = e;
+
+        if (!cerca) return;
+
+        // Mundo -> pantalla: se resta la cámara. Queda centrado sobre la puerta (X e Y).
+        _sprite.X = puerta.Center.X - _sprite.Width / 2f;
+        _sprite.Y = puerta.Center.Y - _sprite.Height / 2f;
+
+        // Frame 0 = normal, frame 1 = presionado (solo mientras se mantiene E).
+        int frame = Presionado ? 1 : 0;
+        _sprite.SourceRectangle = new Rectangle(frame * FrameAncho, 0, FrameAncho, FrameAlto);
+    }
 }
